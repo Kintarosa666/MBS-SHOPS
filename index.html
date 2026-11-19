@@ -8,10 +8,10 @@
 <title>MBS Shop</title>
 <style>
 :root{--s:1;--ink:#2b1320;--cream:#f6e3b4;--gold:#ffcf3f;--wine:#5a1f33}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
 html,body{margin:0;height:100%;background:#12070d;overflow:hidden;overscroll-behavior:none;touch-action:manipulation;
  font-family:'Sarabun','Noto Sans Thai','Thonburi','Sukhumvit Set','Tahoma',system-ui,sans-serif;font-weight:700}
-#stage{position:absolute;left:50%;top:50%;width:1200px;height:670px;margin:-335px 0 0 -600px;transform:scale(var(--s));transform-origin:center;overflow:hidden;background:#1a0a11;touch-action:pan-y}
+#stage{position:absolute;left:50%;top:50%;width:1200px;height:670px;margin:-335px 0 0 -600px;transform:scale(var(--s));transform-origin:center;overflow:hidden;background:#1a0a11;touch-action:manipulation}
 img{image-rendering:pixelated;-webkit-user-drag:none;pointer-events:none;display:block}
 .hide{display:none!important}
 .bg{position:absolute;left:0;top:0;width:1200px;height:670px}
@@ -343,7 +343,7 @@ document.querySelectorAll('[data-k]').forEach(i=>i.src=A[i.dataset.k]);
 function fit(){document.documentElement.style.setProperty('--s',Math.min(innerWidth/W,innerHeight/H))}
 addEventListener('resize',fit);addEventListener('orientationchange',()=>setTimeout(fit,250));fit();
 
-// ป้องกัน Safari บน iPhone ซูมเมื่อแตะรัว ๆ หรือกางนิ้วระหว่างเล่น
+// ป้องกัน Safari บน iPhone ซูมจากการแตะสองครั้งหรือกางนิ้วระหว่างเล่น
 document.addEventListener('dblclick',e=>e.preventDefault(),{passive:false});
 ['gesturestart','gesturechange','gestureend'].forEach(type=>{
  document.addEventListener(type,e=>e.preventDefault(),{passive:false});
